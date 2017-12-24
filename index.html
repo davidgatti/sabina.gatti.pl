@@ -336,9 +336,9 @@
 				<div class="row color-bg">
 					<div class="col-md-6 nopadding subscribe text-center">
 						<h1><i class="fa fa-paper-plane"></i><span>Zapisz się do Newslettera</span></h1>
-						<form action="index.html#">
-							<input type="text" name="" value="" placeholder="" required>
-							<input type="submit" name="" value="Send">
+						<form id="news_letter" method="post" enctype="application/x-www-form-urlencoded">
+							<input id="email" type="text" name="email" placeholder="Twój email" autocomplete="email" required>
+							<input id="submit" type="submit" value="Send">
 						</form>
 					</div>
 					<div class="col-md-6 nopadding features-intro-img">
@@ -369,7 +369,7 @@
 					<div class="col-md-12">
 						<div class="dark-box box-hover">
 							<h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-							<p><a href="index.html#">przemoc@gatti.pl</a></p>
+							<p><a id="contact_email" href=""></a></p>
 						</div>
 					</div>
 
@@ -409,6 +409,8 @@
 		<script src="./assets/js/lightbox.min.js"></script>
 		<script src="./assets/js/main.js"></script>
 		<script src="./assets/js/script.js"></script>
+		<script src="./assets/js/newsletter.js"></script>
+		<script src="./assets/js/email.js"></script>
 
 <!-- 	==========================
 			Text rotating settings
