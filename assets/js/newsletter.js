@@ -23,7 +23,7 @@ $("#news_letter").submit(function(event) {
 	//
 	//	5.	URL to use
 	//
-	var url = 'https://api.gatti.pl/v1/subscribe_to_newsletter_mailchimp';
+	var url = 'https://newsletter.api.sabina.gatti.pl/v1/subscribe';
 
 	//
 	//	6.	Data to send
