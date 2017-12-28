@@ -38,7 +38,6 @@
 
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/lightbox.css">
 		<link rel="stylesheet" href="assets/css/simpletextrotator.css">
 		<link rel="stylesheet" href="assets/css/flexslider.css">
 		<link rel="stylesheet" href="assets/css/style.css">
@@ -452,11 +451,43 @@
 		<script src="./assets/js/jquery.flexslider.js"></script>
 		<script src="./assets/js/modernizr.js"></script>
 		<script src="./assets/js/jquery.simple-text-rotator.js"></script>
-		<script src="./assets/js/lightbox.min.js"></script>
 		<script src="./assets/js/script.js"></script>
 		<script src="./assets/js/newsletter.js"></script>
 		<script src="./assets/js/email.js"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111604482-1"></script>
+
+<!-- 	==========================
+			Chrome Worker
+		=========================== -->
+
+		<script>
+
+			if('serviceWorker' in navigator)
+			{
+				//
+				//	1.	Set the options for the worker
+				//
+				var options = {
+					scope: './'
+				}
+
+				//
+				//	2.	Tell the Service Worker to register a new worker
+				//
+				navigator.serviceWorker
+				.register('./service_worker.js', options)
+				.then(function(reg){
+
+					// Nothing to do
+
+				}).catch(function(error) {
+
+					console.log("No it didn't. This happened: ", error);
+
+				});
+			}
+
+		</script>
 
 <!-- 	==========================
 			Text rotating settings
