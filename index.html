@@ -457,39 +457,6 @@
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111604482-1"></script>
 
 <!-- 	==========================
-			Chrome Worker
-		=========================== -->
-
-		<script>
-
-			if('serviceWorker' in navigator)
-			{
-				//
-				//	1.	Set the options for the worker
-				//
-				var options = {
-					scope: './'
-				}
-
-				//
-				//	2.	Tell the Service Worker to register a new worker
-				//
-				navigator.serviceWorker
-				.register('./service_worker.js', options)
-				.then(function(reg){
-
-					// Nothing to do
-
-				}).catch(function(error) {
-
-					console.log("No it didn't. This happened: ", error);
-
-				});
-			}
-
-		</script>
-
-<!-- 	==========================
 			Text rotating settings
 		=========================== -->
 
