@@ -6,6 +6,9 @@ phases:
       - npm install
       - apt-get update
       - apt-get install imagemagick -y
+  pre_build:
+    commands:
+      - 'echo "{\"newsletter_endpoint\": \"$NEWSLETTER_ENDPOINT\"}" > env.json'
   build:
     commands:
       #

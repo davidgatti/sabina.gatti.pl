@@ -23,7 +23,7 @@ $("#news_letter").submit(function(event) {
 	//
 	//	5.	URL to use
 	//
-	var url = 'https://newsletter.api.sabina.gatti.pl/v1/subscribe';
+	var url = '{{newsletter_endpoint}}';
 
 	//
 	//	6.	Data to send
