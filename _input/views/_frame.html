@@ -113,7 +113,6 @@
 		<script src="./assets/js/modernizr.js"></script>
 		<script src="./assets/js/jquery.simple-text-rotator.js"></script>
 		<script src="./assets/js/script.js"></script>
-		<script src="./assets/js/newsletter.js"></script>
 		<script src="./assets/js/email.js"></script>
 
 <!-- 	==========================
@@ -126,6 +125,82 @@
 				animation: "fade", 	// You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
 				separator: ",", 	// If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
 				speed: 2000 		// How many milliseconds until the next word show.
+			});
+
+			//
+			//	Save email to newsletter.
+			//
+			$("#news_letter").submit(function(event) {
+
+				//
+				//	1.	Let the user know the email is being saved
+				//
+				$('#submit').val('Saving...');
+
+				//
+				//	2. Prevent the browser from taking the default action
+				//
+				event.preventDefault();
+
+				//
+				//	3.	Save the DOM focused data
+				//
+				let $form = $(this);
+
+				//
+				//	4.	Get the email from the form
+				//
+				let email = $('#email').val();
+
+				//
+				//	5.	URL to use
+				//
+				let url = '{{newsletter_endpoint}}';
+
+				//
+				//	6.	Data to send
+				//
+				let data = JSON.stringify({
+					email: email
+				});
+
+				//
+				//	7.	Make the request
+				//
+				$.ajax({
+					url: url,
+					type: 'POST',
+					contentType: "application/json",
+					data: data
+				})
+				.done(function(data) {
+
+					//
+					//	1.	Let the user know that the email was saved
+					//
+					$('#submit').val('Saved');
+
+					//
+					//	2.	Disable the button to show that the action
+					//		was completed.
+					//
+					$('#submit').prop('disabled', true)
+
+				})
+				.fail(function(xhr, status, error) {
+
+					//
+					//	1.	Reset the button
+					//
+					$('#submit').val('Submit');
+
+					//
+					//	2.	Mark the input as invalid
+					//
+					$('#email').addClass('is-invalid')
+
+				});
+
 			});
 
 		</script>
