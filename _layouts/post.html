@@ -1,0 +1,30 @@
+---
+layout: default
+permalink: /articles/:categories/:title:output_ext
+---
+  <main class="main pt-4">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-9">
+
+          <article class="card mb-4">
+            <header class="card-header text-center">
+              <div class="card-meta">
+                <a href="#"><time class="timeago" datetime="{{ page.date }}">{{ page.date || date: format: 'long' }}</time></a> in <a href="{{ page.categories | first }}">{{ page.categories | first }}</a>
+              </div>
+              <h1 class="card-title">How can we sing about love?</h1>
+            </header>
+            <img class="card-img" src="{{ page.cover }}" alt="" />
+            <div class="card-body">
+              {{ content }}
+            </div>
+          </article><!-- /.card -->
+
+        </div>
+        {% include sider.html %}
+      </div>
+    </div>
+
+  </main>
