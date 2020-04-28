@@ -2,6 +2,7 @@
 title: Should I go all in with Serverless?
 cover: /assets/img/articles/should-i-go-all-in-with-serverless/cover.png
 layout: post
+author: Sabina Gatti
 subtitle: The goal is to give a better understanding of what is the Serverless technology.
 categories: [category2]
 
