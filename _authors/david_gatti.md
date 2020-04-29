@@ -1,8 +1,7 @@
 ---
 name: David Gatti
 layout: author
-title: Author, David Gatti
-uid: david_gatti
+title: David Gatti
 position: CEO
 cover: "/assets/img/authors/empty_profile.png"
 ---
