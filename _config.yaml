@@ -7,6 +7,9 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 permalink: articles/:categories/:year/:month/:day/:title:output_ext
+collections:
+  authors:
+    output: true
 plugins:
   - jekyll-redirect-from
   - jekyll-paginate-v2

@@ -1,0 +1,25 @@
+---
+layout: default
+title: Home
+---
+        <div class="col-md-9 offset-1">
+          <div class="row">
+            {% for author in site.authors %}
+            <div class="col-md-4">
+              <article class="card mb-4">
+                <header class="card-header">
+                  <a href="{{ author.url }}">
+                    <h4 class="card-title">{{ author.name }}</h4>
+                  </a>
+                </header>
+                <a href="{{ author.url }}">
+                  <img class="card-img" src="{{ author.cover }}" alt="" />
+                </a>
+                <div class="card-body">
+                  <p class="card-text">{{ author.subtitle }}</p>
+                </div>
+              </article><!-- /.card -->
+            </div>
+            {% endfor %}
+          </div>
+        </div>
