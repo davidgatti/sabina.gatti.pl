@@ -2,8 +2,9 @@
   <aside class="sidebar">
     <div class="card mb-4">
       <div class="card-body">
-        <h4 class="card-title">About</h4>
-        <p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam <a href="#">semper libero</a>, sit amet adipiscing sem neque sed ipsum. </p>
+        <h4 class="card-title">O Mnie</h4>
+        <p class="card-text">Interesuję się od lat zdrowiem psychofizycznym człowieka. Interesują mnie relacje rodzic - dziecko i wpływ tych relacji na relacje w życiu dorosłym człowieka. To co robię nie jest nagonką na kobiety ale przedstawianiem drugiej prawdy o kobietach, bo bez tej prawdy niemożliwym jest przerwanie błędnego koła przemocy.</p>
+        <p class="card-text">Moim celem jest obalenie stereotypów o kobietach i mężczyznach i w ten sposób podniesienie świadomości w społeczeństwie w temacie przemocy.</p>
       </div>
     </div><!-- /.card -->
   </aside>
@@ -11,7 +12,7 @@
   <aside class="sidebar sidebar-sticky">
     <div class="card mb-4">
       <div class="card-body">
-        <h4 class="card-title">Tags</h4>
+        <h4 class="card-title">Tagi</h4>
         {% for category in site.categories %}
         <a class="btn btn-light btn-sm mb-1" href="/articles/{{ category | first }}">{{ category | first }}</a>
         {% endfor %}

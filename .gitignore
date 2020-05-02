@@ -3,3 +3,4 @@
 /_output
 /_preview
 /_site
+.jekyll-cache/*
