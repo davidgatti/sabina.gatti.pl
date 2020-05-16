@@ -14,7 +14,7 @@ redirect_from:
               <article class="card mb-4">
                 <header class="card-header">
                   <div class="card-meta">
-                    <a href="{{ post.url }}"><time class="timeago" datetime="{{ post.date }}">{{ post.date | date: format: 'long'}}</time></a> in <a href="/articles/{{ post.categories | first }}">{{ post.categories | first}}</a>
+                    {{ post.date | date: "%d %b, %Y"}} in <a href="/articles/{{ post.categories | first }}">{{ post.categories | first}}</a>
                   </div>
                   <a href="{{ post.url }}">
                     <h4 class="card-title">{{ post.title }}</h4>
