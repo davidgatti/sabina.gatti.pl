@@ -18,8 +18,8 @@
         {% endfor %}
       </div>
     </div><!-- /.card -->
+  {% if paginator.total_pages > 0 %}
     <div class="card mb-4">
-    {% if paginator.total_pages > 0 %}
       <nav class="ml-4">
         <ul class="pagination">
               <li class="page-item {% if paginator.previous_page==nil %}disabled{% endif %}"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Previous</a></li>
@@ -30,7 +30,7 @@
                 <li class="page-item {% if paginator.next_page==nil %}disabled{% endif %}"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next</a></li>
         </ul>
       </nav>
-    {% endif %}
     </div>
+  {% endif %}
   </aside>
 </div>
