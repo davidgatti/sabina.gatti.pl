@@ -10,6 +10,8 @@ permalink: articles/:categories/:year/:month/:day/:title:output_ext
 collections:
   authors:
     output: true
+  books:
+    output: false
 defaults:
   - scope:
       path: ""
