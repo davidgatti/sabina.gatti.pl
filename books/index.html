@@ -1,0 +1,35 @@
+---
+layout: default
+title: Books
+---
+  {% assign count = 0 %}
+  <main class="main pt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-center">
+            <h2>Books</h2>
+            <hr />
+          </div>
+          <div class="row"> 
+              {% for book in site.books %}
+                <div class="col-md-4">
+                  <article class="card mb-4">
+                    <header class="card-header">
+                        <h4 class="card-title">{{ book.name }}</h4>
+                      </a>
+                    </header>
+                      <img class="card-img" src="{{ book.cover }}" alt="" />
+                       <div class="card-body">
+                        <p class="card-text">{{ book.subtitle }}</p>
+                      </div>
+                  </article><!-- /.card -->
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
