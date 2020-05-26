@@ -1,5 +1,6 @@
 ---
 layout: sticky-footer-default
+title: Privacy Policy
 ---
 <section class="pt-8 pt-md-11 pb-8 pb-md-14">
   <div class="container">

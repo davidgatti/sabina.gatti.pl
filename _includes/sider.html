@@ -7,10 +7,7 @@
         <p class="card-text">Moim celem jest obalenie stereotypów o kobietach i mężczyznach i w ten sposób podniesienie świadomości w społeczeństwie w temacie przemocy.</p>
       </div>
     </div><!-- /.card -->
-  </aside>
-
-  <aside class="sidebar sidebar-sticky">
-    <div class="card mb-4">
+    <div style="{% if (paginator.total_pages > 0) %}padding:10px {% endif %}" class="{% if paginator.total_pages > 0 %}card {% endif %}mb-4">
       <div class="card-body">
         <h4 class="card-title">Tagi</h4>
         {% for category in site.categories %}
@@ -19,7 +16,7 @@
       </div>
     </div><!-- /.card -->
   {% if paginator.total_pages > 0 %}
-    <div class="card mb-4">
+    <div class="mb-4" style="padding:10px">
       <nav class="ml-4">
         <ul class="pagination">
               <li class="page-item {% if paginator.previous_page==nil %}disabled{% endif %}"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Previous</a></li>
