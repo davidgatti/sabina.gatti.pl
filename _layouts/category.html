@@ -1,0 +1,45 @@
+---
+layout: default
+---
+  {% assign count = 0 %}
+  {% assign splitted = paginator.first_page_path | split: "/" %}
+  <main class="main pt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="text-center">
+            <span class="text-muted">Category:</span>
+            {% for member in splitted %}
+              {% assign category = member %}
+            {% endfor %}
+            <h2>{{ category }}</h2>
+            <hr />
+          </div>
+          <div class="row"> 
+              {% for post in paginator.posts %}
+                <div class="col-md-4">
+                  <article class="card mb-4">
+                    <header class="card-header">
+                      <div class="card-meta">
+                        <a href="{{ post.url }}"><time class="timeago" datetime="{{ post.date }}">{{ post.date | date: format: 'long'}}</time></a> in <a href="/articles/{{ post.categories | first }}">{{ post.categories | first}}</a>
+                      </div>
+                      <a href="{{ post.url }}">
+                        <h4 class="card-title">{{ post.title }}</h4>
+                      </a>
+                    </header>
+                    <a href="{{ post.url }}">
+                      <img class="card-img" src="{{ post.cover }}" alt="" />
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{ post.subtitle }}</p>
+                    </div>
+                  </article><!-- /.card -->
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% include sider.html %}
+      </div>
+    </div>
+
+  </main>

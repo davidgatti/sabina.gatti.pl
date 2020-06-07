@@ -1,0 +1,8 @@
+- name: Home
+  url: /
+- name: O Mnie
+  url: /about
+- name: Kontakt
+  url: /contact
+- name: Books
+  url: /books

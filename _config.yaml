@@ -1,0 +1,27 @@
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/page/:num/'
+  title_suffix: ' - :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+permalink: articles/:categories/:year/:month/:day/:title:output_ext
+collections:
+  authors:
+    output: true
+  books:
+    output: false
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+plugins:
+  - jekyll-redirect-from
+  - jekyll-paginate-v2
+  - jekyll-feed
+  - jekyll-environment-variables  
+  - jekyll-sitemap
+  - jekyll-seo-tag

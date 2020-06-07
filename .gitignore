@@ -2,3 +2,5 @@
 /node_modules
 /_output
 /_preview
+/_site
+.jekyll-cache/*

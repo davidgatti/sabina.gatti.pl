@@ -1,0 +1,33 @@
+<div class="col-md-3 ml-auto">
+  <aside class="sidebar">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h4 class="card-title">O Mnie</h4>
+        <p class="card-text">Interesuję się od lat zdrowiem psychofizycznym człowieka. Interesują mnie relacje rodzic - dziecko i wpływ tych relacji na relacje w życiu dorosłym człowieka. To co robię nie jest nagonką na kobiety ale przedstawianiem drugiej prawdy o kobietach, bo bez tej prawdy niemożliwym jest przerwanie błędnego koła przemocy.</p>
+        <p class="card-text">Moim celem jest obalenie stereotypów o kobietach i mężczyznach i w ten sposób podniesienie świadomości w społeczeństwie w temacie przemocy.</p>
+      </div>
+    </div><!-- /.card -->
+    <div style="{% if (paginator.total_pages > 0) %}padding:10px {% endif %}" class="{% if paginator.total_pages > 0 %}card {% endif %}mb-4">
+      <div class="card-body">
+        <h4 class="card-title">Tagi</h4>
+        {% for category in site.categories %}
+        <a class="btn btn-light btn-sm mb-1" href="/articles/{{ category | first }}">{{ category | first }}</a>
+        {% endfor %}
+      </div>
+    </div><!-- /.card -->
+  {% if paginator.total_pages > 0 %}
+    <div class="mb-4" style="padding:10px">
+      <nav class="ml-4">
+        <ul class="pagination">
+              <li class="page-item {% if paginator.previous_page==nil %}disabled{% endif %}"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Previous</a></li>
+            {% for pg in (1..paginator.total_pages) %}
+              {% assign link = paginator.first_page_path %}
+              <li class="page-item{% if pg==paginator.page %} active{% endif %}"><a class="page-link" href="{% if pg==1 %}{{ link }}{% endif %}{% if pg!=1 %}{{ link }}{{ pg }}/{% endif %}">{{ pg }}</a></li>
+            {% endfor %}
+              <li class="page-item {% if paginator.next_page==nil %}disabled{% endif %}"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+  {% endif %}
+  </aside>
+</div>

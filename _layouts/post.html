@@ -1,0 +1,34 @@
+---
+layout: default
+permalink: /articles/:categories/:title:output_ext
+---
+  <main class="main pt-4">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-9">
+
+          <article class="card mb-4">
+            <header class="card-header text-center">
+              <div class="card-meta">
+                Posted on {{ page.date | date: "%d %b, %Y"}} in <a href="{{ page.categories | first }}">{{ page.categories | first }}</a>
+              </div>
+              <div class="card-meta">
+              {% assign author = site.authors | where: 'name', page.author | first %}
+                by <a href="/authors/{{ author.uid }}">{{ page.author }}</a>
+              </div>
+              <h1 class="card-title">{{ page.title }}</h1>
+            </header>
+            <img class="card-img" src="{{ page.cover }}" alt="" />
+            <div class="card-body">
+              {{ content }}
+            </div>
+          </article><!-- /.card -->
+
+        </div>
+        {% include sider.html %}
+      </div>
+    </div>
+
+  </main>
