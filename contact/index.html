@@ -126,35 +126,56 @@ title: Kontakt
     $('#submit_button')[0].textContent = 'Sending...'
 
     //
-    //  3.  create a JSON object
+    //  3.  Get the time zone the browser is in.
     //
-    let json = {
-      'full_name' : fullname,
-      'email' : email,
-      'body' : message
-    }
+    let tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     //
-    //  4.  Stringify JSON
+    //  4.  This array is used to format the body of the message.
+    //
+    let body_raw = [
+      message,
+      '\n',
+      '- Time zone: ' + tz
+    ];
+
+    //
+    //  5.  Once we have the body formated how we want we join the array
+    //      in to a single string.
+    //  
+    let body = body_raw.join('\n');
+    
+    //
+    //  6.  create a JSON object
+    //
+    let json = {
+      "name": fullname,
+      "email": email,
+      "subject": "Email from sabina.gatti.pl.",
+      "body": body
+    }
+    //
+    //  7.  Stringify JSON
     //
     let data = JSON.stringify(json)
 
     //
-    //  5.  Convert string to binary data
+    //  8.  Convert string to an ArrayBuffer
     //
-    let binary = string_to_binary(data)
+    let encoder = new TextEncoder();
+    let array_buffer = encoder.encode(data)
 
     //
-    //  6.  Prepare parameters for putObject function
+    //  9.  Prepare parameters for putObject function
     //
     let params = {
-      Body: binary,
-      Bucket: "{{ site.env.S3_BUCKET_EMAIL }}",
-      Key: "message_from_" + email + ".json"
+      Body: array_buffer,
+      Bucket: "0x4447-web-us-east-1-smtp",
+      Key: Math.round((new Date()).getTime() / 1000) + ".json"
     }
 
     //
-    //  6.  Call putObject to send json to S3 Bucket
+    //  10.  Call putObject to send json to S3 Bucket
     //
     s3.putObject(params, function(error, data) {
 
@@ -182,21 +203,6 @@ title: Kontakt
       $('#contact_name')[0].value= '';
     
     })
-  }
-
-  //
-  //  A helper function to convert string to binary
-  //
-  function string_to_binary(string)
-  {
-    let output = '';
-
-    for (i=0; i < string.length; i++) 
-    {
-      output +=string[i].charCodeAt(0).toString(2) + " ";
-    }
-    
-    return output
   }
 
 </script>
